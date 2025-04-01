@@ -5,11 +5,14 @@ import { Link } from "react-router-dom";
 const Home = () => {
     const [data,setData]=useState([])
     const fetchData=()=>{
-                fetch(`https://reqres.in/api/users`)
+                fetch(`https://mini-magic-mart-backend.vercel.app/api/vegetable/getVegetabls`)
                 .then((res)=>res.json())
                 .then((data)=>{
                     console.log(data.data)
                     setData(data.data)
+                })
+                .catch((error)=>{
+                  console.log("Vegetable not found")
                 })
     }
     useEffect(()=>{
